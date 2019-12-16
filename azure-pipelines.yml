@@ -19,14 +19,11 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleDebug test'
   displayName: gradlew assembleDebug test
-  
-- task: Ant@1
-    inputs:
-      buildFile: 'build.xml'
-      options: 
-      publishJUnitResults: true
-      testResultsFiles: '**/TEST-*.xml'
-      javaHomeOption: 'JDKVersion'
+- task: Gulp@1
+  inputs:
+    gulpFile: 'gulpfile.js'
+    targets: 
+    enableCodeCoverage: false
 
 - task: CopyFiles@2
   inputs:
